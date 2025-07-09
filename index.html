@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Dennis</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .section {
+      opacity: 0;
+      position: absolute;
+      max-width: 800px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(30px);
+    }
+
+    .section.active {
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      color: #fffbe7;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #fff;
+    }
+
+    .background-fade {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 10s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-fade"></div>
+
+  <div class="section active">
+    <h1>🎉 Happy Birthday, Dennis</h1>
+    <p>To the one and only Viking — today, this little site is for you.</p>
+  </div>
+
+  <div class="section">
+    <h1>How We Met</h1>
+    <p>
+      It was a random night, just another Apex Legends queue... and then there you two were. A wild Aletta with unmatched energy, and you, the quiet guy standing behind her. We lost, of course — but somehow, I never really left after that night.
+    </p>
+  </div>
+
+  <div class="section">
+    <h1>What Makes You Great</h1>
+    <p>
+      Fairness, empathy, patience You’ve got all of it. I’ve seen it many times. And yeah, your literal height doesn’t hurt either. I swear you're not tall, you're just cosplaying a ladder.
+    </p>
+  </div>
+
+  <div class="section">
+    <h1>Being a Numpty</h1>
+    <p>
+      You’ve taught me so much — not just about Rust 😁, but about what it means to truly show up for someone, especially when it counts. I messed up. I kept messing up. And you never lost your patience. You just kept calling me a numpty and showing me the way.
+    </p>
+  </div>
+
+  <div class="section">
+    <h1>Food Crimes</h1>
+    <p>
+      I told you both to stop sending food pics. I begged. I pleaded. And yet — you, Dennis the menace, remind Aletta to send them just to tease me. Honestly? I love it. I love that you both think of me, even when it’s to torment me with lasagna.
+    </p>
+  </div>
+
+  <div class="section">
+    <h1>You & Aletta</h1>
+    <p>
+      There’s something about the two of you — something beautiful. The way you love each other, talk to each other, laugh together. It’s a gift to witness. I don’t know why I love you both so much. But I do.
+    </p>
+  </div>
+
+  <div class="section">
+    <h1>Final Words</h1>
+    <p>
+      Happy birthday, Dennis. You and Aletta have made more of a difference in my life than you probably realize. You’ve made me laugh, feel welcome, feel safe — and yeah, feel like a beloved numpty. Thank you, literal Menace. 🫡
+    </p>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll('.section');
+    let current = 0;
+
+    function showNextSection() {
+      if (current < sections.length - 1) {
+        sections[current].classList.remove('active');
+        current++;
+        sections[current].classList.add('active');
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        showNextSection();
+      }
+    });
+
+    document.addEventListener('click', () => {
+      showNextSection();
+    });
+  </script>
+</body>
+</html>
