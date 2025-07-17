@@ -87,8 +87,8 @@
 
     .floating-image {
       position: absolute;
-      width: 60px;
-      height: 60px;
+      width: 120px;
+      height: 120px;
       pointer-events: none;
       z-index: 0;
     }
@@ -199,8 +199,8 @@
       gif.style.top = Math.random() * (window.innerHeight - 120) + 'px';
       gif.style.left = Math.random() * (window.innerWidth - 120) + 'px';
 
-      let dx = (Math.random() - 0.5) * 2;
-      let dy = (Math.random() - 0.5) * 2;
+      let dx = (Math.random() - 0.5) * 4;
+      let dy = (Math.random() - 0.5) * 4;
 
       function move() {
         let x = parseFloat(gif.style.left);
