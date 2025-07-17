@@ -85,9 +85,8 @@
 
     .floating-image {
       position: absolute;
-      width: 120px;
-      height: 120px;
-      animation: floatImage 20s linear infinite;
+      width: 450px;
+      height: 450px;
       pointer-events: none;
       z-index: 0;
     }
@@ -111,10 +110,11 @@
   <div class="background-fade"></div>
 
   <!-- Floating Viking images -->
-  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWRyZmdvaXo3NHIyYTk4d21kMmJlNzgzdHUxdmZ1b2U2cmw1Zzd4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/ZMJNGCi6kr9ru1toq4/giphy.gif" class="floating-image" style="left: 10%; animation-delay: 5s;">
-  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmc3cjU4MWxncDFlaTY5ZjdnejBteXh4dDl5MzloOHJzZDdxZmZobiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/m1S7sMVp8kUuQjoQ1U/giphy.gif" class="floating-image" style="left: 20%; animation-delay: 3s;">
-  <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXRtM3RsZnZqaHdueWdvdGs4N2RpZ29qdzVkZTRrMGwybTN4dGRqeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/4cG6D2nkSuV3gzywur/giphy.gif" class="floating-image" style="left: 80%; animation-delay: 3s;">
-  <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExajVwbnFobHdxYnYzaHU1OGpsM2NoeHV0MGd2cmZyd2czY2Vldm52byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/1QkDczlF3bcB9qpL2Y/giphy.gif" class="floating-image" style="left: 90%; animation-delay: 5s;">
+  <img src="https://github.com/KaNAshi-K/viking-gifs/blob/main/1.gif?raw=true" class="floating-image">
+  <img src="https://github.com/KaNAshi-K/viking-gifs/blob/main/5.gif?raw=true" class="floating-image">
+  <img src="https://github.com/KaNAshi-K/viking-gifs/blob/main/3.gif?raw=true" class="floating-image">
+  <img src="https://github.com/KaNAshi-K/viking-gifs/blob/main/4.gif?raw=true" class="floating-image">
+  <img src="https://github.com/KaNAshi-K/viking-gifs/blob/main/2.gif?raw=true" class="floating-image">
 
 
   <div class="section active">
@@ -192,6 +192,34 @@
 
     document.addEventListener('click', () => {
       showNextSection();
+    });
+
+    const gifs = document.querySelectorAll('.floating-image');
+
+    gifs.forEach(gif => {
+      gif.style.top = Math.random() * (window.innerHeight - 120) + 'px';
+      gif.style.left = Math.random() * (window.innerWidth - 120) + 'px';
+
+      let dx = (Math.random() - 0.5) * 2;
+      let dy = (Math.random() - 0.5) * 2;
+
+      function move() {
+        let x = parseFloat(gif.style.left);
+        let y = parseFloat(gif.style.top);
+
+        x += dx;
+        y += dy;
+
+        if (x < 0 || x > window.innerWidth - 120) dx *= -1;
+        if (y < 0 || y > window.innerHeight - 120) dy *= -1;
+
+        gif.style.left = x + 'px';
+        gif.style.top = y + 'px';
+
+        requestAnimationFrame(move);
+      }
+
+      move();
     });
   </script>
 </body>
